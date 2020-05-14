@@ -17,78 +17,24 @@ import MyAccountScreen from "../screens/MyAccountScreen";
 import LoginScreen from "../screens/LoginScreen";
 import DashboardScreen from "../screens/DashboardScreen";
 
-const JobNavigator = createStackNavigator(
-  {
-    JobAddEdit: JobAddEditScreen,
-    JobDetails: JobDetailsScreen,
-    JobList: JobListScreen,
-  },
-  {
-    initialRouteName: "JobList",
-  }
-);
-
-const PartsNavigator = createStackNavigator(
-  {
-    PartDetails: PartDetailsScreen,
-    PartsAddEdit: PartsAddEditScreen,
-    PartsList: PartsListScreen,
-  },
-  {
-    initialRouteName: "PartsList",
-  }
-);
-
-const FirstAidNavigator = createStackNavigator(
-  {
-    FirstAidAddEdit: FirstAidAddEditScreen,
-    FirstAidDetails: FirstAidDetailsScreen,
-    FirstAidList: FirstAidListScreen,
-  },
-  {
-    initialRouteName: "FirstAidList",
-  }
-);
-
-const VesselNavigator = createStackNavigator(
-  {
-    FirstAid: FirstAidNavigator,
-    Jobs: JobNavigator,
-    Parts: PartsNavigator,
-    VesselDetails: VesselDetailsScreen,
-    VesselList: VesselListScreen,
-  },
-  {
-    initialRouteName: "VesselList",
-  }
-);
-
-const CrewNavigator = createStackNavigator(
+const MainNavigator = createStackNavigator(
   {
     CrewMemberDetails: CrewMemberDetailsScreen,
     CrewMemberList: CrewMemberListScreen,
-  },
-  {
-    initialRouteName: "CrewMemberList",
-  }
-);
-
-const AccountNavigator = createStackNavigator(
-  {
-    MyAccount: MyAccountScreen,
-  },
-  {
-    initialRouteName: "MyAccount",
-  }
-);
-
-const MainNavigator = createStackNavigator(
-  {
-    Account: AccountNavigator,
-    Crew: CrewNavigator,
     Dashboard: DashboardScreen,
+    FirstAidAddEdit: FirstAidAddEditScreen,
+    FirstAidDetails: FirstAidDetailsScreen,
+    FirstAidList: FirstAidListScreen,
+    JobAddEdit: JobAddEditScreen,
+    JobDetails: JobDetailsScreen,
+    JobList: JobListScreen,
     Login: LoginScreen,
-    Vessels: VesselNavigator,
+    MyAccount: MyAccountScreen,
+    PartDetails: PartDetailsScreen,
+    PartsAddEdit: PartsAddEditScreen,
+    PartsList: PartsListScreen,
+    VesselDetails: VesselDetailsScreen,
+    VesselList: VesselListScreen,
   },
   {
     initialRouteName: "Login",
