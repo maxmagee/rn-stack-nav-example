@@ -1,18 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 const JobAddEditScreen = (props) => {
   const { navigation } = props;
 
-  const buttonPressHandler = (routeName) => {
-    navigation.navigate(routeName);
-  };
-
   return (
     <View style={styles.centeredScreen}>
       <Text>JobAddEditScreen</Text>
-      <Button title="Go To Next" onPress={buttonPressHandler.bind(null, "routeName")} />
     </View>
   );
 };
@@ -23,6 +18,14 @@ JobAddEditScreen.propTypes = {
   }).isRequired,
 };
 JobAddEditScreen.defaultProps = {};
+
+JobAddEditScreen.navigationOptions = (navigationData) => {
+  const { navigation } = navigationData;
+  const isAdding = navigation.getParam("isAdding");
+  return {
+    headerTitle: isAdding ? "Add Job" : "Edit Job",
+  };
+};
 
 const styles = StyleSheet.create({
   centeredScreen: {

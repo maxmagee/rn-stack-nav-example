@@ -5,14 +5,17 @@ import { Button, StyleSheet, Text, View } from "react-native";
 const CrewMemberListScreen = (props) => {
   const { navigation } = props;
 
-  const buttonPressHandler = (routeName) => {
-    navigation.navigate(routeName);
+  const buttonPressHandler = (routeName, params) => {
+    navigation.navigate(routeName, params);
   };
 
   return (
     <View style={styles.centeredScreen}>
       <Text>CrewMemberListScreen</Text>
-      <Button title="Go To Next" onPress={buttonPressHandler.bind(null, "routeName")} />
+      <Button
+        title="CREW MEMBER 1"
+        onPress={buttonPressHandler.bind(null, "CrewMemberDetails", { memberId: 1 })}
+      />
     </View>
   );
 };
@@ -23,6 +26,10 @@ CrewMemberListScreen.propTypes = {
   }).isRequired,
 };
 CrewMemberListScreen.defaultProps = {};
+
+CrewMemberListScreen.navigationOptions = {
+  headerTitle: "Crew List",
+};
 
 const styles = StyleSheet.create({
   centeredScreen: {

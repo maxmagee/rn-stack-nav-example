@@ -1,18 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 const MyAccountScreen = (props) => {
   const { navigation } = props;
 
-  const buttonPressHandler = (routeName) => {
-    navigation.navigate(routeName);
-  };
-
   return (
     <View style={styles.centeredScreen}>
       <Text>MyAccountScreen</Text>
-      <Button title="Go To Next" onPress={buttonPressHandler.bind(null, "routeName")} />
     </View>
   );
 };
@@ -23,6 +18,10 @@ MyAccountScreen.propTypes = {
   }).isRequired,
 };
 MyAccountScreen.defaultProps = {};
+
+MyAccountScreen.navigationOptions = {
+  headerTitle: "My Account",
+};
 
 const styles = StyleSheet.create({
   centeredScreen: {

@@ -1,18 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Button, StyleSheet, Text, View } from "react-native";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+
+import CustomHeaderButton from "../../components/CustomHeaderButton";
 
 const JobListScreen = (props) => {
   const { navigation } = props;
 
-  const buttonPressHandler = (routeName) => {
-    navigation.navigate(routeName);
+  const buttonPressHandler = (routeName, params) => {
+    navigation.navigate(routeName, params);
   };
 
   return (
     <View style={styles.centeredScreen}>
       <Text>JobListScreen</Text>
-      <Button title="Go To Next" onPress={buttonPressHandler.bind(null, "routeName")} />
+      <Button title="JOB 1" onPress={buttonPressHandler.bind(null, "JobDetails", { jobId: 1 })} />
     </View>
   );
 };
@@ -23,6 +26,23 @@ JobListScreen.propTypes = {
   }).isRequired,
 };
 JobListScreen.defaultProps = {};
+
+JobListScreen.navigationOptions = (navigationData) => {
+  const { navigation } = navigationData;
+  const goToAddHandler = () => {
+    navigation.navigate("JobAddEdit", { isAdding: true });
+  };
+  return {
+    headerRight: () => {
+      return (
+        <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+          <Item iconName="ios-add" onPress={goToAddHandler} />
+        </HeaderButtons>
+      );
+    },
+    headerTitle: "Jobs",
+  };
+};
 
 const styles = StyleSheet.create({
   centeredScreen: {

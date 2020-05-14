@@ -12,7 +12,7 @@ const LoginScreen = (props) => {
   return (
     <View style={styles.centeredScreen}>
       <Text>LoginScreen</Text>
-      <Button title="Go To Next" onPress={buttonPressHandler.bind(null, "routeName")} />
+      <Button title="LOGIN" onPress={buttonPressHandler.bind(null, "Dashboard")} />
     </View>
   );
 };
@@ -23,6 +23,10 @@ LoginScreen.propTypes = {
   }).isRequired,
 };
 LoginScreen.defaultProps = {};
+
+LoginScreen.navigationOptions = {
+  headerTitle: "Welcome",
+};
 
 const styles = StyleSheet.create({
   centeredScreen: {

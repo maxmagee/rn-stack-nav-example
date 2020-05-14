@@ -5,14 +5,17 @@ import { Button, StyleSheet, Text, View } from "react-native";
 const FirstAidAddEditScreen = (props) => {
   const { navigation } = props;
 
-  const buttonPressHandler = (routeName) => {
-    navigation.navigate(routeName);
+  const buttonPressHandler = (routeName, params) => {
+    navigation.navigate(routeName, params);
   };
 
   return (
     <View style={styles.centeredScreen}>
       <Text>FirstAidAddEditScreen</Text>
-      <Button title="Go To Next" onPress={buttonPressHandler.bind(null, "routeName")} />
+      <Button
+        title="First Aid Item 1"
+        onPress={buttonPressHandler.bind(null, "FirstAidDetails", { firstAidId: 1 })}
+      />
     </View>
   );
 };
@@ -23,6 +26,14 @@ FirstAidAddEditScreen.propTypes = {
   }).isRequired,
 };
 FirstAidAddEditScreen.defaultProps = {};
+
+FirstAidAddEditScreen.navigationOptions = (navigationData) => {
+  const { navigation } = navigationData;
+  const isAdding = navigation.getParam("isAdding");
+  return {
+    headerTitle: isAdding ? "Add First Aid" : "Edit First Aid",
+  };
+};
 
 const styles = StyleSheet.create({
   centeredScreen: {

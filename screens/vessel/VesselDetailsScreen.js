@@ -4,6 +4,7 @@ import { Button, StyleSheet, Text, View } from "react-native";
 
 const VesselDetailsScreen = (props) => {
   const { navigation } = props;
+  const vesselId = navigation.getParam("vesselId");
 
   const buttonPressHandler = (routeName) => {
     navigation.navigate(routeName);
@@ -11,18 +12,25 @@ const VesselDetailsScreen = (props) => {
 
   return (
     <View style={styles.centeredScreen}>
-      <Text>VesselDetailsScreen</Text>
-      <Button title="Go To Next" onPress={buttonPressHandler.bind(null, "routeName")} />
+      <Text>Vessel {vesselId} Details</Text>
+      <Button title="JOBS" onPress={buttonPressHandler.bind(null, "JobList")} />
+      <Button title="PARTS" onPress={buttonPressHandler.bind(null, "PartsList")} />
+      <Button title="FIRST AID" onPress={buttonPressHandler.bind(null, "FirstAidList")} />
     </View>
   );
 };
 
 VesselDetailsScreen.propTypes = {
   navigation: PropTypes.shape({
+    getParam: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
 VesselDetailsScreen.defaultProps = {};
+
+VesselDetailsScreen.navigationOptions = {
+  headerTitle: "Vessel Details",
+};
 
 const styles = StyleSheet.create({
   centeredScreen: {

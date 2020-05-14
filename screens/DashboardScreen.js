@@ -12,7 +12,9 @@ const DashboardScreen = (props) => {
   return (
     <View style={styles.centeredScreen}>
       <Text>DashboardScreen</Text>
-      <Button title="Go To Next" onPress={buttonPressHandler.bind(null, "routeName")} />
+      <Button title="VESSELS" onPress={buttonPressHandler.bind(null, "VesselList")} />
+      <Button title="CREW" onPress={buttonPressHandler.bind(null, "CrewMemberList")} />
+      <Button title="MY ACCOUNT" onPress={buttonPressHandler.bind(null, "MyAccount")} />
     </View>
   );
 };
@@ -23,6 +25,10 @@ DashboardScreen.propTypes = {
   }).isRequired,
 };
 DashboardScreen.defaultProps = {};
+
+DashboardScreen.navigationOptions = {
+  headerTitle: "Dashboard",
+};
 
 const styles = StyleSheet.create({
   centeredScreen: {
