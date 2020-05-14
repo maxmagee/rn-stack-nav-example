@@ -1,0 +1,16 @@
+{
+  "window.zoomLevel": 1,
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.formatOnSave": false,
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "todo-tree.tree.showScanModeButton": false
+}
